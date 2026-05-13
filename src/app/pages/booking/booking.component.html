@@ -1,0 +1,104 @@
+<div class="page-hero">
+  <h1>Hüpfburg buchen</h1>
+  <p>Wähle deine Hüpfburg und wunsch­termin – wir kümmern uns um den Rest!</p>
+</div>
+
+<div class="booking-container">
+
+  @if (submitted) {
+    <div class="booking-success">
+      <i class="pi pi-check-circle"></i>
+      <h2>Anfrage erhalten! 🎉</h2>
+      <p>Wir melden uns innerhalb von 24 Stunden bei dir.<br>Schau auch in deinen Spam-Ordner!</p>
+    </div>
+  } @else {
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="booking-form" novalidate>
+
+      <div class="form-section">
+        <h3><i class="pi pi-box"></i> Hüpfburg auswählen</h3>
+        <div class="form-group">
+          <label for="productId">Hüpfburg *</label>
+          <p-select id="productId" formControlName="productId"
+            [options]="products" optionLabel="name" optionValue="id"
+            placeholder="Bitte auswählen" styleClass="w-full"
+            [class.ng-invalid]="isInvalid('productId')" />
+          @if (isInvalid('productId')) {
+            <small class="error">Bitte wähle eine Hüpfburg aus.</small>
+          }
+        </div>
+        <div class="form-group">
+          <label for="date">Wunsch­termin *</label>
+          <p-datepicker id="date" formControlName="date"
+            dateFormat="dd.mm.yy" [minDate]="minDate"
+            [showIcon]="true" styleClass="w-full"
+            [class.ng-invalid]="isInvalid('date')" />
+          @if (isInvalid('date')) {
+            <small class="error">Bitte wähle ein Datum aus.</small>
+          }
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><i class="pi pi-user"></i> Kontaktdaten</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customerName">Name *</label>
+            <input pInputText id="customerName" formControlName="customerName"
+              placeholder="Max Mustermann" class="w-full"
+              [class.ng-invalid]="isInvalid('customerName')" />
+            @if (isInvalid('customerName')) {
+              <small class="error">Bitte gib deinen Namen ein.</small>
+            }
+          </div>
+          <div class="form-group">
+            <label for="customerPhone">Telefon *</label>
+            <input pInputText id="customerPhone" formControlName="customerPhone"
+              placeholder="+49 123 456789" class="w-full"
+              [class.ng-invalid]="isInvalid('customerPhone')" />
+            @if (isInvalid('customerPhone')) {
+              <small class="error">Bitte gib deine Telefonnummer ein.</small>
+            }
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="customerEmail">E-Mail *</label>
+          <input pInputText id="customerEmail" formControlName="customerEmail"
+            placeholder="max@beispiel.de" class="w-full"
+            [class.ng-invalid]="isInvalid('customerEmail')" />
+          @if (isInvalid('customerEmail')) {
+            <small class="error">Bitte gib eine gültige E-Mail-Adresse ein.</small>
+          }
+        </div>
+        <div class="form-group">
+          <label for="customerAddress">Lieferadresse *</label>
+          <input pInputText id="customerAddress" formControlName="customerAddress"
+            placeholder="Musterstraße 1, 12345 Musterstadt" class="w-full"
+            [class.ng-invalid]="isInvalid('customerAddress')" />
+          @if (isInvalid('customerAddress')) {
+            <small class="error">Bitte gib deine Lieferadresse ein.</small>
+          }
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht (optional)</label>
+          <textarea pTextarea id="message" formControlName="message"
+            placeholder="Besondere Wünsche oder Fragen..." class="w-full" rows="3">
+          </textarea>
+        </div>
+      </div>
+
+      <div class="form-submit">
+        @if (errorMessage) {
+          <div class="form-error-banner">
+            <i class="pi pi-exclamation-triangle"></i> {{ errorMessage }}
+          </div>
+        }
+        <p-button type="submit" label="Anfrage senden" icon="pi pi-send"
+          [loading]="loading" size="large" />
+        <small>* Pflichtfelder – keine Zahlung nötig, nur eine Anfrage.</small>
+      </div>
+
+    </form>
+  }
+
+</div>

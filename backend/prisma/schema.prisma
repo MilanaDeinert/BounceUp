@@ -1,0 +1,57 @@
+// ============================================================
+// Prisma Schema — BounceUp Backend
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ── Enums ─────────────────────────────────────────────────────
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+// ── Models ────────────────────────────────────────────────────
+
+model Product {
+  id          String    @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  imageUrl    String?
+  size        String?   // e.g. "4x4m"
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  bookings    Booking[]
+
+  @@map("products")
+}
+
+model Booking {
+  id           String        @id @default(uuid())
+  customerName String
+  email        String
+  phone        String
+  address      String
+  bookingDate  DateTime
+  notes        String?
+  status       BookingStatus @default(PENDING)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  productId    String
+  product      Product       @relation(fields: [productId], references: [id])
+
+  @@unique([productId, bookingDate])   // prevent double booking
+  @@map("bookings")
+}

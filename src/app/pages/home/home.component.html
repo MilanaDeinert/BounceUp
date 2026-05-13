@@ -1,0 +1,131 @@
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero__bubbles" aria-hidden="true">
+    @for (b of bubbles; track b.left) {
+      <span class="bubble bubble--{{ b.colorIdx }}" [ngStyle]="bubbleStyle(b)"></span>
+    }
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p-chip label="🎉 Saison 2025 – Jetzt verfügbar!" styleClass="hero__badge" />
+    <h1 class="hero__title">
+      Spaß ohne Grenzen –<br>
+      <span>Hüpfburgen</span> für dein Fest!
+    </h1>
+    <p class="hero__subtitle">
+      Unvergessliche Momente für Kindergeburtstage, Familienfeste und Events.
+      Lieferung &amp; Aufbau inklusive.
+    </p>
+    <div class="hero__actions">
+      <a routerLink="/booking">
+        <p-button label="Jetzt buchen" icon="pi pi-calendar-plus" size="large" />
+      </a>
+      <a routerLink="/catalog">
+        <p-button label="Alle Hüpfburgen" icon="pi pi-arrow-right" size="large"
+          [outlined]="true" styleClass="hero__btn-secondary" />
+      </a>
+    </div>
+    <div class="hero__stats">
+      <div><strong>500+</strong><span>Buchungen</span></div>
+      <div><strong>50+</strong><span>Events / Jahr</span></div>
+      <div><strong>5⭐</strong><span>Bewertung</span></div>
+    </div>
+  </div>
+  <div class="hero__scroll-hint">
+    <i class="pi pi-angle-down"></i>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<section class="features">
+  <div class="features__inner">
+    @for (f of features; track f.title) {
+      <div class="feature-card">
+        <i [class]="f.icon"></i>
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.text }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="featured-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Unsere Highlights</p>
+      <h2 class="section-title">Beliebte Hüpfburgen</h2>
+      <p class="section-subtitle">Handverlesen für maximalen Spaß</p>
+    </div>
+
+    <div class="product-grid">
+      @for (product of featuredProducts; track product.id) {
+        <article class="product-card" [routerLink]="['/catalog', product.slug]">
+          <div class="product-card__image">
+            <img [src]="product.images[0]" [alt]="product.name" />
+            <div class="product-card__badge">Ab {{ product.price }}€ / Tag</div>
+          </div>
+          <div class="product-card__body">
+            <p-chip [label]="product.category | titlecase" styleClass="product-card__category" />
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <div class="product-card__specs">
+              <span><i class="pi pi-expand"></i> {{ product.width }}x{{ product.length }}m</span>
+              <span><i class="pi pi-users"></i> bis {{ product.capacity }} Kinder</span>
+            </div>
+            <p-button label="Details & buchen" icon="pi pi-arrow-right" iconPos="right"
+              styleClass="product-card__cta" [outlined]="true" />
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="section-cta">
+      <a routerLink="/catalog">
+        <p-button label="Alle Hüpfburgen ansehen" icon="pi pi-th-large" size="large" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Einfach & schnell</p>
+      <h2 class="section-title">So funktioniert's</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__number">1</div>
+        <h3>Hüpfburg wählen</h3>
+        <p>Browse durch unser Sortiment und finde dein Lieblingsmodell.</p>
+      </div>
+      <div class="step__arrow"><i class="pi pi-arrow-right"></i></div>
+      <div class="step">
+        <div class="step__number">2</div>
+        <h3>Datum buchen</h3>
+        <p>Wähle einen freien Tag im Kalender und fülle das Formular aus.</p>
+      </div>
+      <div class="step__arrow"><i class="pi pi-arrow-right"></i></div>
+      <div class="step">
+        <div class="step__number">3</div>
+        <h3>Wir liefern</h3>
+        <p>Unser Team bringt, baut auf und holt wieder ab. Fertig!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner__inner">
+    <div class="cta-banner__text">
+      <h2>Bereit für das nächste große Fest? 🎈</h2>
+      <p>Prüfe jetzt die Verfügbarkeit und sichere dir deinen Wunschtermin.</p>
+    </div>
+    <a routerLink="/booking">
+      <p-button label="Jetzt buchen" icon="pi pi-calendar-plus" size="large" />
+    </a>
+  </div>
+</section>

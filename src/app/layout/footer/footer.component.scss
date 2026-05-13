@@ -1,0 +1,178 @@
+.footer {
+  background: var(--clr-primary-dark);
+  color: rgba(255, 255, 255, 0.7);
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+    }
+  }
+
+  // ── Brand column ──────────────────────────────
+  &__brand {
+    p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      margin: 0.75rem 0 1.25rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+  }
+
+  &__logo-img {
+    height: 44px;
+    width: auto;
+    max-width: 180px;
+    display: block;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+  }
+
+  &__social {
+    display: flex;
+    gap: 0.6rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+      &:hover {
+        background: var(--clr-bg);
+        border-color: var(--clr-bg);
+        color: var(--clr-primary);
+      }
+    }
+  }
+
+  // ── Link columns ──────────────────────────────
+  &__links {
+    h4 {
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 0 0 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.6rem;
+
+        a {
+          color: rgba(255, 255, 255, 0.55);
+          text-decoration: none;
+          font-size: 0.875rem;
+          transition: color 0.2s;
+
+          &:hover {
+            color: var(--clr-bg);
+          }
+        }
+      }
+    }
+  }
+
+  // ── Contact column ────────────────────────────
+  &__contact {
+    h4 {
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 0 0 1rem;
+    }
+
+    p {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.55);
+      margin: 0 0 0.6rem;
+      line-height: 1.5;
+
+      i {
+        color: var(--clr-bg);
+        flex-shrink: 0;
+        margin-top: 0.15rem;
+      }
+    }
+  }
+
+  // ── Bottom bar ────────────────────────────────
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    > div {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      text-align: center;
+
+      @media (min-width: 640px) {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.35);
+      margin: 0;
+    }
+  }
+
+  &__legal {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: 640px) {
+      justify-content: flex-end;
+    }
+
+    a {
+      color: rgba(255, 255, 255, 0.35);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--clr-bg);
+      }
+    }
+  }
+}

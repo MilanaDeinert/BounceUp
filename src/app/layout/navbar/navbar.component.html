@@ -1,0 +1,41 @@
+﻿<nav class="navbar" [class.scrolled]="scrolled()">
+  <div class="navbar__inner">
+    <!-- Hamburger (mobile: left) -->
+    <button class="navbar__hamburger" (click)="toggleMenu()" aria-label="Menü öffnen">
+      <span [class.open]="menuOpen()"></span>
+      <span [class.open]="menuOpen()"></span>
+      <span [class.open]="menuOpen()"></span>
+    </button>
+
+    <!-- Logo (mobile: center, desktop: left) -->
+    <a class="navbar__logo" routerLink="/" (click)="closeMenu()">
+      <img src="assets/images/logo.png" alt="BounceUp" class="navbar__logo-img" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="navbar__links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Start</a></li>
+      <li><a routerLink="/catalog" routerLinkActive="active">Hüpfburgen</a></li>
+      <li><a routerLink="/booking" routerLinkActive="active">Buchen</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Kontakt</a></li>
+    </ul>
+
+    <!-- CTA Button (desktop only) -->
+    <a routerLink="/booking" class="navbar__cta" (click)="closeMenu()">
+      <p-button label="Jetzt buchen" icon="pi pi-calendar" size="small" />
+    </a>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="navbar__mobile" [class.open]="menuOpen()">
+    <ul>
+      <li><a routerLink="/" (click)="closeMenu()">Start</a></li>
+      <li><a routerLink="/catalog" (click)="closeMenu()">Hüpfburgen</a></li>
+      <li><a routerLink="/booking" (click)="closeMenu()">Buchen</a></li>
+      <li><a routerLink="/contact" (click)="closeMenu()">Kontakt</a></li>
+    </ul>
+    <a routerLink="/booking" class="mobile-cta" (click)="closeMenu()">
+      <p-button label="Jetzt buchen" icon="pi pi-calendar" styleClass="w-full" />
+    </a>
+  </div>
+</nav>

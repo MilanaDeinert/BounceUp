@@ -1,0 +1,124 @@
+﻿.page-hero {
+  background: var(--clr-bg-soft);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 7rem 1.5rem 2.5rem;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--clr-text);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: var(--clr-text-muted);
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+.booking-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.form-section {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-card);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--clr-border);
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--clr-text);
+    margin: 0 0 1.5rem;
+    i { color: var(--clr-primary); }
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 480px) { grid-template-columns: 1fr 1fr; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+
+  &:last-child { margin-bottom: 0; }
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--clr-text);
+  }
+}
+
+.error {
+  color: #b91c1c;
+  font-size: 0.78rem;
+}
+
+.form-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  small {
+    color: var(--clr-text-muted);
+    font-size: 0.8rem;
+  }
+}
+
+.booking-success {
+  text-align: center;
+  padding: 4rem 2rem;
+
+  i {
+    font-size: 3.5rem;
+    color: var(--clr-primary);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--clr-text);
+    margin: 0 0 0.75rem;
+  }
+
+  p { color: var(--clr-text-muted); line-height: 1.7; }
+}
+
+.form-error-banner {
+  background: #fff0f0;
+  border: 1px solid #f5c6c6;
+  color: #c0392b;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
