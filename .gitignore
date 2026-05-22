@@ -46,3 +46,6 @@ Thumbs.db
 /backend/dist
 /backend/.env
 /backend/prisma/migrations
+
+# Lock file — let Vercel regenerate on Linux
+package-lock.json
