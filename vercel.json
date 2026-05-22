@@ -2,6 +2,7 @@
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "npx ng build --configuration production",
   "outputDirectory": "dist/bounceup/browser",
+  "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
