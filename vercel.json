@@ -1,8 +1,4 @@
 {
-  "installCommand": "npm install -g npm@9 && npm install --legacy-peer-deps",
-  "buildCommand": "node --max-old-space-size=4096 node_modules/@angular/cli/bin/ng.js build --configuration production",
-  "outputDirectory": "dist/bounceup/browser",
-  "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
